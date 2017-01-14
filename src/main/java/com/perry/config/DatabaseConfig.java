@@ -1,4 +1,4 @@
-package com.perry;
+package com.perry.config;
 
 import javax.sql.DataSource;
 
