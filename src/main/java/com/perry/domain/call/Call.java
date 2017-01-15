@@ -1,10 +1,18 @@
-package com.perry.domain;
+package com.perry.domain.call;
 
-public class Call {
+import com.perry.domain.CallType;
+import com.perry.domain.Customer;
+import com.perry.infrastructure.Persisted;
+
+public class Call extends Persisted {
 
 	private Customer customer;
 
-	private Location location;
+	private String pickUpLocation;
+
+	private String dropOffLocation;
+
+	private CallType callType;
 
 	public Customer getCustomer() {
 		return customer;
@@ -14,12 +22,28 @@ public class Call {
 		this.customer = customer;
 	}
 
-	public Location getLocation() {
-		return location;
+	public String getPickUpLocation() {
+		return pickUpLocation;
 	}
 
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setPickUpLocation(String pickUpLocation) {
+		this.pickUpLocation = pickUpLocation;
+	}
+
+	public String getDropOffLocation() {
+		return dropOffLocation;
+	}
+
+	public void setDropOffLocation(String dropOffLocation) {
+		this.dropOffLocation = dropOffLocation;
+	}
+
+	public CallType getCallType() {
+		return callType;
+	}
+
+	public void setCallType(CallType callType) {
+		this.callType = callType;
 	}
 
 }
