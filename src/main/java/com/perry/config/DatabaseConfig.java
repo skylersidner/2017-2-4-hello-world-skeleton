@@ -45,7 +45,7 @@ public class DatabaseConfig {
 
 			config.setDriverClassName("org.postgresql.Driver");
 			config.setPoolName("Perrys Towing Connection Pool");
-			config.setMaximumPoolSize(20);
+			config.setMaximumPoolSize(10);
 //			config.setRegisterMbeans(true);
 
 			perryDataSource = new HikariDataSource(config);
