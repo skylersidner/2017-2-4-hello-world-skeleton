@@ -1,6 +1,6 @@
 package com.perry.domain;
 
-public class Job {
+public class Call {
 
 	private Customer customer;
 
