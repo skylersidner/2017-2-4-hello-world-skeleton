@@ -7,6 +7,8 @@ public class Customer {
 
 	private String phoneNumber;
 
+	private Vehicle vehicle;
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -30,6 +32,13 @@ public class Customer {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
-	
+
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+
 }

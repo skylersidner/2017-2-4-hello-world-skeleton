@@ -37,6 +37,9 @@ public class DatabaseConfig {
 			String password = dbUri.getUserInfo().split(":")[1];
 			String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()
 					+ "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+			//I have no idea why I need this ssl=true ect but if you remove it you will get the following error
+			//Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "72.213.49.57", user "xbddkeqdrgqvay", database "d67770ocvq7m7q", SSL off
+			// So don't do that
 
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(dbUrl);

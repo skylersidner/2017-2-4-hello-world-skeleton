@@ -5,9 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.perry.domain.Call;
 import com.perry.domain.Customer;
-import com.perry.domain.Location;
+import com.perry.domain.call.Call;
 
 public class CallRowMapper implements RowMapper<Call> {
 
@@ -19,14 +18,9 @@ public class CallRowMapper implements RowMapper<Call> {
 		customer.setLastName(rs.getString("customer_last_name"));
 		customer.setPhoneNumber(rs.getString("customer_phone_number"));
 
-		Location location = new Location();
-		location.setHouseNumber("Fake House Number");
-		location.setState("NE");
-		location.setStreetName("Fake Street Name");
-		location.setZipCode("1233445");
-
 		call.setCustomer(customer);
-		call.setLocation(location);
+		call.setPickUpLocation("Corner of Walmart parking lot");
+		call.setDropOffLocation("Narnia.....good luck");
 
 		return call;
 	}

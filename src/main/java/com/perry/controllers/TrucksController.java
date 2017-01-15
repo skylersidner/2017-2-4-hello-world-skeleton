@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.perry.domain.Call;
-import com.perry.domain.CallDomainService;
+import com.perry.domain.call.Call;
+import com.perry.domain.call.CallDomainService;
 
 @RestController
-@RequestMapping("/jobs")
-public class TowingJobsController {
+@RequestMapping("/trucks")
+public class TrucksController {
 
 	@Inject
 	private CallDomainService jobDomainService;
 
-	@RequestMapping(value = "/{jobId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
 	public List<Call> getJobById(@PathVariable Long jobId) {
 		List<Call> callList = jobDomainService.getByIds(Arrays.asList(jobId));
 		return callList;
