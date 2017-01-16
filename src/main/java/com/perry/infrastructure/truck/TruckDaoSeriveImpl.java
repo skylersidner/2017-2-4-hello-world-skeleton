@@ -22,7 +22,7 @@ public class TruckDaoSeriveImpl implements TruckDaoService {
 
 	@Override
 	public List<Truck> getByIds(List<Long> truckIds) {
-		String sql = "select * from trucks t where t.id in (:truckIds)";
+		String sql = "select * from trucks t where t.truck_id in (:truckIds)";
 		MapSqlParameterSource params = new MapSqlParameterSource();
 
 		params.addValue("truckIds", truckIds);
