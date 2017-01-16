@@ -8,4 +8,6 @@ public interface TruckDaoService {
 
 	List<Truck> getByIds(List<Long> truckIds);
 
+	Truck create(Truck truck);
+
 }

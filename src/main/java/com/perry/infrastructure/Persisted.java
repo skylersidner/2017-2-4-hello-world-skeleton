@@ -1,46 +1,54 @@
 package com.perry.infrastructure;
 
-import java.time.LocalDateTime;
-
 public class Persisted {
 
-	private long insertTime;
+	private Long id;
 
-	private long updateTime;
+	private Long insertTime;
 
-	private long insertBy;
+	private Long updateTime;
 
-	private long updateBy;
+	private Long insertBy;
 
-	public long getInsertTime() {
+	private Long updateBy;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getInsertTime() {
 		return insertTime;
 	}
 
-	public void setInsertTime(long insertTime) {
+	public void setInsertTime(Long insertTime) {
 		this.insertTime = insertTime;
 	}
 
-	public long getUpdateTime() {
+	public Long getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(long updateTime) {
+	public void setUpdateTime(Long updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	public long getInsertBy() {
+	public Long getInsertBy() {
 		return insertBy;
 	}
 
-	public void setInsertBy(long insertBy) {
+	public void setInsertBy(Long insertBy) {
 		this.insertBy = insertBy;
 	}
 
-	public long getUpdateBy() {
+	public Long getUpdateBy() {
 		return updateBy;
 	}
 
-	public void setUpdateBy(long updateBy) {
+	public void setUpdateBy(Long updateBy) {
 		this.updateBy = updateBy;
 	}
 

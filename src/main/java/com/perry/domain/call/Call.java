@@ -14,6 +14,18 @@ public class Call extends Persisted {
 
 	private CallType callType;
 
+	public Call() {
+		// Default Constructor
+	}
+
+	public Call(Customer customer, String pickUpLocation, String dropOffLocation, CallType callType) {
+		super();
+		this.customer = customer;
+		this.pickUpLocation = pickUpLocation;
+		this.dropOffLocation = dropOffLocation;
+		this.callType = callType;
+	}
+
 	public Customer getCustomer() {
 		return customer;
 	}

@@ -17,7 +17,7 @@ import com.perry.domain.call.CallDomainService;
 
 @RestController
 @RequestMapping("/calls")
-public class CallsController {
+public class CallController {
 
 	@Inject
 	private CallDomainService callDomainService;
@@ -27,7 +27,7 @@ public class CallsController {
 		List<Call> callList = callDomainService.getByIds(Arrays.asList(callId));
 		return callList;
 	}
-	
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
 	public Call create(@RequestBody Call call) {
 		Call createdCall = callDomainService.create(call);

@@ -12,7 +12,7 @@ public class Vehicle {
 
 	private String licensePlateNumber;
 
-	private KeyLocationType keyLocation;
+	private KeyLocationType keyLocationType;
 
 	public String getYear() {
 		return year;
@@ -54,12 +54,12 @@ public class Vehicle {
 		this.licensePlateNumber = licensePlateNumber;
 	}
 
-	public KeyLocationType getKeyLocation() {
-		return keyLocation;
+	public KeyLocationType getKeyLocationType() {
+		return keyLocationType;
 	}
 
-	public void setKeyLocation(KeyLocationType keyLocation) {
-		this.keyLocation = keyLocation;
+	public void setKeyLocationType(KeyLocationType keyLocationType) {
+		this.keyLocationType = keyLocationType;
 	}
 
 }

@@ -2,13 +2,15 @@ package com.perry.domain.truck;
 
 import com.perry.infrastructure.Persisted;
 
-public class Truck extends Persisted{
+public class Truck extends Persisted {
 
 	private long truckId;
 
-	private String firstName;
+	private String driverFirstName;
 
-	private String lastName;
+	private String driverLastName;
+
+	private TruckStatusType truckStatusType;
 
 	public long getTruckId() {
 		return truckId;
@@ -18,20 +20,28 @@ public class Truck extends Persisted{
 		this.truckId = truckId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getDriverFirstName() {
+		return driverFirstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setDriverFirstName(String firstName) {
+		this.driverFirstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getDriverLastName() {
+		return driverLastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setDriverLastName(String lastName) {
+		this.driverLastName = lastName;
+	}
+
+	public TruckStatusType getTruckStatusType() {
+		return truckStatusType;
+	}
+
+	public void setTruckStatusType(TruckStatusType truckStatusType) {
+		this.truckStatusType = truckStatusType;
 	}
 
 }

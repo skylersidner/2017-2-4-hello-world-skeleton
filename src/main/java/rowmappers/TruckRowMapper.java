@@ -13,8 +13,8 @@ public class TruckRowMapper implements RowMapper<Truck> {
 	public Truck mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Truck truck = new Truck();
 		truck.setTruckId(rs.getLong("truck_id"));
-		truck.setFirstName(rs.getString("driver_first_name"));
-		truck.setLastName(rs.getString("driver_last_name"));
+		truck.setDriverFirstName(rs.getString("driver_first_name"));
+		truck.setDriverLastName(rs.getString("driver_last_name"));
 		truck.setInsertBy(rs.getLong("insert_by"));
 		truck.setUpdateBy(rs.getLong("update_by"));
 		truck.setInsertTime(rs.getLong("insert_time"));

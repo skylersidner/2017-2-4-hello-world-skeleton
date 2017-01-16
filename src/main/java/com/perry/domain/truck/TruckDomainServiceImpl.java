@@ -19,4 +19,10 @@ public class TruckDomainServiceImpl implements TruckDomainService {
 		return truckList;
 	}
 
+	@Override
+	public Truck create(Truck truck) {
+		Truck createdTruck = truckDaoService.create(truck);
+		return createdTruck;
+	}
+
 }
