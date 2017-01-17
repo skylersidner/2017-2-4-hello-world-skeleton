@@ -4,15 +4,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.inject.Inject;
-import javax.inject.Qualifier;
 import javax.sql.DataSource;
 
-import org.apache.catalina.security.SecurityUtil;
-import org.apache.tomcat.util.codec.DecoderException;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
