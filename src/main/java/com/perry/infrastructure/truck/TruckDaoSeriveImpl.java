@@ -53,4 +53,11 @@ public class TruckDaoSeriveImpl implements TruckDaoService {
 		return truck;
 	}
 
+	@Override
+	public List<Truck> getAll() {
+		String sql = "select * from trucks";
+		List<Truck> truckList = namedParameterJdbcTemplate.query(sql, new TruckRowMapper());
+		return truckList;
+	}
+
 }

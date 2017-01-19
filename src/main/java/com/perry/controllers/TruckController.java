@@ -1,6 +1,7 @@
 package com.perry.controllers;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
@@ -31,5 +32,11 @@ public class TruckController {
 	public Truck createTruck(@RequestBody Truck truck) {
 		Truck createdTruck = truckDomainService.create(truck);
 		return createdTruck;
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public List<Truck> getAllTrucks() {
+		List<Truck> truckList = truckDomainService.getAll();
+		return truckList;
 	}
 }

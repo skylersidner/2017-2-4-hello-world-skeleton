@@ -76,4 +76,11 @@ public class CallDaoServiceImpl implements CallDaoService {
 		return call;
 	}
 
+	@Override
+	public List<Call> getAllCalls() {
+		String sql = "select * from calls";
+		List<Call> callList = namedParameterJdbcTemplate.query(sql, new CallRowMapper());
+		return callList;
+	}
+
 }

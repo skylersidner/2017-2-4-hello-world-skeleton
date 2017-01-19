@@ -25,4 +25,10 @@ public class CallDomainServieImpl implements CallDomainService {
 		return createdCall;
 	}
 
+	@Override
+	public List<Call> getAllCalls() {
+		List<Call> callList = callDaoService.getAllCalls();
+		return callList;
+	}
+
 }

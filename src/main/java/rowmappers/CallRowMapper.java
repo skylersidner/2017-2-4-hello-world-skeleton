@@ -17,10 +17,12 @@ public class CallRowMapper implements RowMapper<Call> {
 		customer.setFirstName(rs.getString("customer_first_name"));
 		customer.setLastName(rs.getString("customer_last_name"));
 		customer.setPhoneNumber(rs.getString("customer_phone_number"));
-
+		
+		call.setId(rs.getLong("call_id"));
 		call.setCustomer(customer);
 		call.setPickUpLocation("Corner of Walmart parking lot");
 		call.setDropOffLocation("Narnia.....good luck");
+		call.setTruckId(rs.getString(("truck_id")));
 
 		return call;
 	}

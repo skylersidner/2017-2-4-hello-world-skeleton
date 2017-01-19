@@ -21,13 +21,16 @@ public class CallTest {
 		String pickUpLocation = "Pick Up Location";
 		String dropOffLocation = "Drop Off Location";
 		CallType callType = CallType.IMPOUND;
+		String truckId = "1k8";
+	
 
-		Call call = new Call(customer, pickUpLocation, dropOffLocation, callType);
+		Call call = new Call(customer, pickUpLocation, dropOffLocation, callType, truckId);
 
 		assertThat(call.getCustomer(), equalTo(customer));
 		assertThat(call.getPickUpLocation(), equalTo(pickUpLocation));
 		assertThat(call.getDropOffLocation(), equalTo(dropOffLocation));
 		assertThat(call.getCallType(), equalTo(callType));
+		assertThat(call.getTruckId(), equalTo(truckId));
 	}
 
 	@Ignore
@@ -49,8 +52,8 @@ public class CallTest {
 		customer.setPhoneNumber("1-238-722-9888");
 		customer.setVehicle(vehicle);
 		CallType callType = CallType.IMPOUND;
-
-		Call call = new Call(customer, pickUpLocation, dropOffLocation, callType);
+		String truckId = "1k8";
+		Call call = new Call(customer, pickUpLocation, dropOffLocation, callType, truckId);
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(mapper.writeValueAsString(call));
 	}

@@ -33,4 +33,10 @@ public class CallController {
 		Call createdCall = callDomainService.create(call);
 		return createdCall;
 	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public List<Call> getAllCalls() {
+		List<Call> callList = callDomainService.getAllCalls();
+		return callList;
+	}
 }

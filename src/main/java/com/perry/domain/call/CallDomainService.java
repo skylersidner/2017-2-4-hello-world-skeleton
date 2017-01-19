@@ -8,4 +8,6 @@ public interface CallDomainService {
 
 	Call create(Call call);
 
+	List<Call> getAllCalls();
+
 }

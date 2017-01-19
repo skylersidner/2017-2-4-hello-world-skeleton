@@ -10,4 +10,6 @@ public interface TruckDaoService {
 
 	Truck create(Truck truck);
 
+	List<Truck> getAll();
+
 }
