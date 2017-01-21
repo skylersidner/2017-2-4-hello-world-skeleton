@@ -43,4 +43,10 @@ public class CallDomainServieImpl implements CallDomainService {
 		return callList;
 	}
 
+	@Override
+	public void unAssignTruck(long callId) {
+		callDaoService.unAssignTruck(callId);
+		
+	}
+
 }

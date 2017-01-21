@@ -14,4 +14,6 @@ public interface CallDomainService {
 
 	List<Call> getAvailable();
 
+	void unAssignTruck(long callId);
+
 }

@@ -16,4 +16,6 @@ public interface CallDaoService {
 
 	List<Call> getAvailable();
 
+	void unAssignTruck(long callId);
+
 }

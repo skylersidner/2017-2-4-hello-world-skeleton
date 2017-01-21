@@ -101,4 +101,15 @@ public class CallDaoServiceImpl implements CallDaoService {
 		return callList;
 	}
 
+	@Override
+	public void unAssignTruck(long callId) {
+		String sql = "update calls set truck_id = 0 where call_id = :callId";
+
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("callId", callId);
+
+		namedParameterJdbcTemplate.update(sql, params);
+
+	}
+
 }

@@ -51,4 +51,10 @@ public class CallController {
 		callDomainService.assignTruck(callId, truckId);
 
 	}
+	
+	@RequestMapping(value = "/unassign/{callId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+	public void unAssignTruck(@PathVariable long callId) {
+		callDomainService.unAssignTruck(callId);
+
+	}
 }
