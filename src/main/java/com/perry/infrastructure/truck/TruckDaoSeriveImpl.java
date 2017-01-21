@@ -2,6 +2,7 @@ package com.perry.infrastructure.truck;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,6 +11,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.perry.domain.truck.Truck;
 
 import rowmappers.TruckRowMapper;
@@ -57,7 +60,19 @@ public class TruckDaoSeriveImpl implements TruckDaoService {
 	public List<Truck> getAll() {
 		String sql = "select * from trucks";
 		List<Truck> truckList = namedParameterJdbcTemplate.query(sql, new TruckRowMapper());
+
+		String callCountSql = "SELECT truck_id, COUNT(call_id) as number_of_calls FROM calls GROUP BY truck_id";
+		List<TruckCallNumber> truckCallNumberList = namedParameterJdbcTemplate.query(callCountSql, new TruckCallNumberRowMapper());
+		for (TruckCallNumber truckCallNumber : truckCallNumberList) {
+			for (Truck truck : truckList) {
+				if (truck.getId() == truckCallNumber.getTruckId()) {
+					truck.setNumberOfCalls(truckCallNumber.getNumberOfCalls());
+					break;
+				}
+			}
+		}
 		return truckList;
 	}
+
 
 }

@@ -83,4 +83,22 @@ public class CallDaoServiceImpl implements CallDaoService {
 		return callList;
 	}
 
+	@Override
+	public void assignTruck(long callId, long truckId) {
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("truckId", truckId);
+		params.addValue("callId", callId);
+		String sql = "update calls set truck_id = :truckId where call_id = :callId";
+
+		namedParameterJdbcTemplate.update(sql, params);
+
+	}
+
+	@Override
+	public List<Call> getAvailable() {
+		String sql = "select * from calls where truck_id = 0";
+		List<Call> callList = namedParameterJdbcTemplate.query(sql, new CallRowMapper());
+		return callList;
+	}
+
 }

@@ -12,13 +12,16 @@ public class TruckRowMapper implements RowMapper<Truck> {
 	@Override
 	public Truck mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Truck truck = new Truck();
-		truck.setTruckId(rs.getLong("truck_id"));
-		truck.setDriverFirstName(rs.getString("driver_first_name"));
-		truck.setDriverLastName(rs.getString("driver_last_name"));
+		truck.setId(rs.getLong("truck_id"));
 		truck.setInsertBy(rs.getLong("insert_by"));
 		truck.setUpdateBy(rs.getLong("update_by"));
 		truck.setInsertTime(rs.getLong("insert_time"));
 		truck.setUpdateTime(rs.getLong("insert_time"));
+		truck.setIdentifier(rs.getString("identifier"));
+		truck.setDriverFirstName(rs.getString("driver_first_name"));
+		truck.setDriverLastName(rs.getString("driver_last_name"));
+		truck.setGisLatitude(rs.getString("gis_latitude"));
+		truck.setGisLongitude(rs.getString("gis_longitude"));
 
 		return truck;
 	}

@@ -8,6 +8,10 @@ public interface CallDomainService {
 
 	Call create(Call call);
 
+	void assignTruck(long callId, long truckId);
+
 	List<Call> getAllCalls();
+
+	List<Call> getAvailable();
 
 }

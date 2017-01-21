@@ -39,4 +39,16 @@ public class CallController {
 		List<Call> callList = callDomainService.getAllCalls();
 		return callList;
 	}
+	
+	@RequestMapping(value = "/available", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public List<Call> getAvailableCalls(){
+		List<Call> callList = callDomainService.getAvailable();
+		return callList;
+	}
+
+	@RequestMapping(value = "/assign/{callId}/{truckId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+	public void assignTruck(@PathVariable long callId, @PathVariable long truckId) {
+		callDomainService.assignTruck(callId, truckId);
+
+	}
 }

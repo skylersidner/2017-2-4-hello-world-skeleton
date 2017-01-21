@@ -31,4 +31,16 @@ public class CallDomainServieImpl implements CallDomainService {
 		return callList;
 	}
 
+	@Override
+	public void assignTruck(long callId, long truckId) {
+		callDaoService.assignTruck(callId, truckId);
+
+	}
+
+	@Override
+	public List<Call> getAvailable() {
+		List<Call> callList = callDaoService.getAvailable();
+		return callList;
+	}
+
 }

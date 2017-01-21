@@ -39,4 +39,5 @@ public class TruckController {
 		List<Truck> truckList = truckDomainService.getAll();
 		return truckList;
 	}
+
 }

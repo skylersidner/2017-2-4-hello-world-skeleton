@@ -4,7 +4,8 @@ import com.perry.infrastructure.Persisted;
 
 public class Truck extends Persisted {
 
-	private long truckId;
+	// this is NOT the DB id
+	private String identifier;
 
 	private String driverFirstName;
 
@@ -12,12 +13,18 @@ public class Truck extends Persisted {
 
 	private TruckStatusType truckStatusType;
 
-	public long getTruckId() {
-		return truckId;
+	private long numberOfCalls;
+
+	private String gisLatitude;
+
+	private String gisLongitude;
+
+	public String getIdentifier() {
+		return this.identifier;
 	}
 
-	public void setTruckId(long truckId) {
-		this.truckId = truckId;
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
 	}
 
 	public String getDriverFirstName() {
@@ -42,6 +49,34 @@ public class Truck extends Persisted {
 
 	public void setTruckStatusType(TruckStatusType truckStatusType) {
 		this.truckStatusType = truckStatusType;
+	}
+
+	public long getNumberOfCalls() {
+		return numberOfCalls;
+	}
+
+	public void setNumberOfCalls(long numberOfCalls) {
+		this.numberOfCalls = numberOfCalls;
+	}
+
+	public String getGis_latitude() {
+		return gisLatitude;
+	}
+
+	public String getGisLatitude() {
+		return gisLatitude;
+	}
+
+	public void setGisLatitude(String gisLatitude) {
+		this.gisLatitude = gisLatitude;
+	}
+
+	public String getGisLongitude() {
+		return gisLongitude;
+	}
+
+	public void setGisLongitude(String gisLongitude) {
+		this.gisLongitude = gisLongitude;
 	}
 
 }

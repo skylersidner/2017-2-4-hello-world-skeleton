@@ -12,4 +12,8 @@ public interface CallDaoService {
 
 	List<Call> getAllCalls();
 
+	void assignTruck(long callId, long truckId);
+
+	List<Call> getAvailable();
+
 }
