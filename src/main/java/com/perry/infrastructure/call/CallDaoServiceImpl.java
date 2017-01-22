@@ -55,7 +55,7 @@ public class CallDaoServiceImpl implements CallDaoService {
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("customerFirstName", call.getCustomer().getFirstName());
-		params.addValue("customerLastName", call.getCustomer().getFirstName());
+		params.addValue("customerLastName", call.getCustomer().getLastName());
 		params.addValue("pickUpLocation", call.getPickUpLocation());
 		params.addValue("dropOffLocation", call.getDropOffLocation());
 		params.addValue("customerVehicleYear", call.getCustomer().getVehicle().getYear());
@@ -67,10 +67,9 @@ public class CallDaoServiceImpl implements CallDaoService {
 		params.addValue("customerVehicleKeyLocation", call.getCustomer().getVehicle().getKeyLocationType().getValue());
 		params.addValue("customerCallType", call.getCallType().getValue());
 		params.addValue("customerPaymentInformation", call.getCustomer().getVehicle().getMake());
-		params.addValue("status", call.getCustomer().getVehicle().getMake());
 		params.addValue("insertBy", 1);
 		params.addValue("updateBy", 1);
-		params.addValue("truckId", 10);
+		params.addValue("truckId", 0);
 		params.addValue("insertTime", Instant.now().getEpochSecond());
 		params.addValue("updateTime", Instant.now().getEpochSecond());
 

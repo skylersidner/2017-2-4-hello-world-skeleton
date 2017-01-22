@@ -20,8 +20,8 @@ public class CallRowMapper implements RowMapper<Call> {
 		
 		call.setId(rs.getLong("call_id"));
 		call.setCustomer(customer);
-		call.setPickUpLocation("Corner of Walmart parking lot");
-		call.setDropOffLocation("Narnia.....good luck");
+		call.setPickUpLocation(rs.getString("pick_up_location"));
+		call.setDropOffLocation(rs.getString("drop_off_location"));
 		call.setTruckId(rs.getString(("truck_id")));
 
 		return call;
