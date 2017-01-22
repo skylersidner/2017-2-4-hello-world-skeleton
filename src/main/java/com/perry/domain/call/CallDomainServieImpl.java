@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.perry.domain.truck.Truck;
 import com.perry.infrastructure.call.CallDaoService;
 
 @Named
@@ -32,8 +33,9 @@ public class CallDomainServieImpl implements CallDomainService {
 	}
 
 	@Override
-	public void assignTruck(long callId, long truckId) {
-		callDaoService.assignTruck(callId, truckId);
+	public Truck assignTruck(long callId, long truckId) {
+		Truck updatedTruck = callDaoService.assignTruck(callId, truckId);
+		return updatedTruck;
 
 	}
 
@@ -46,7 +48,7 @@ public class CallDomainServieImpl implements CallDomainService {
 	@Override
 	public void unAssignTruck(long callId) {
 		callDaoService.unAssignTruck(callId);
-		
+
 	}
 
 }

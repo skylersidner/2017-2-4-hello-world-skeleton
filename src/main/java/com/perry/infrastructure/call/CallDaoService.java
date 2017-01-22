@@ -3,6 +3,7 @@ package com.perry.infrastructure.call;
 import java.util.List;
 
 import com.perry.domain.call.Call;
+import com.perry.domain.truck.Truck;
 
 public interface CallDaoService {
 
@@ -12,7 +13,7 @@ public interface CallDaoService {
 
 	List<Call> getAllCalls();
 
-	void assignTruck(long callId, long truckId);
+	Truck assignTruck(long callId, long truckId);
 
 	List<Call> getAvailable();
 

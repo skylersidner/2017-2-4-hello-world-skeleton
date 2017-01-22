@@ -58,7 +58,7 @@ public class TruckDaoSeriveImpl implements TruckDaoService {
 
 	@Override
 	public List<Truck> getAll() {
-		String sql = "select * from trucks";
+		String sql = "select * from trucks order by insert_time asc";
 		List<Truck> truckList = namedParameterJdbcTemplate.query(sql, new TruckRowMapper());
 
 		String callCountSql = "SELECT truck_id, COUNT(call_id) as number_of_calls FROM calls GROUP BY truck_id";

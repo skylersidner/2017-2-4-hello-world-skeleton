@@ -1,6 +1,7 @@
 package com.perry.infrastructure.call;
 
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +12,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.perry.domain.call.Call;
+import com.perry.domain.truck.Truck;
+import com.perry.infrastructure.truck.TruckDaoService;
 
 import rowmappers.CallRowMapper;
 
@@ -19,6 +22,9 @@ public class CallDaoServiceImpl implements CallDaoService {
 
 	@Inject
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+	
+	@Inject
+	private TruckDaoService truckDaoService;
 
 	@Override
 	public List<Call> getByIds(List<Long> ids) {
@@ -78,19 +84,20 @@ public class CallDaoServiceImpl implements CallDaoService {
 
 	@Override
 	public List<Call> getAllCalls() {
-		String sql = "select * from calls";
+		String sql = "select * from calls order by insert_time asc ";
 		List<Call> callList = namedParameterJdbcTemplate.query(sql, new CallRowMapper());
 		return callList;
 	}
 
 	@Override
-	public void assignTruck(long callId, long truckId) {
+	public Truck assignTruck(long callId, long truckId) {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("truckId", truckId);
 		params.addValue("callId", callId);
 		String sql = "update calls set truck_id = :truckId where call_id = :callId";
-
 		namedParameterJdbcTemplate.update(sql, params);
+		Truck truck = truckDaoService.getByIds(Arrays.asList(truckId)).get(0);
+		return truck;
 
 	}
 
