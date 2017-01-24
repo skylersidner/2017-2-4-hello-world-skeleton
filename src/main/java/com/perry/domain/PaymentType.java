@@ -3,7 +3,7 @@ package com.perry.domain;
 import com.perry.exceptions.EnumerationException;
 
 public enum PaymentType {
-	CHARGE(1, "Charge"), CASH(2, "Cash"), MOTOR_CLUB(3, "Motor Club");
+	CHARGE(1, "Charge"), CASH(2, "Cash"), MOTOR_CLUB(3, "Motor Club"), PREPAID(4, "Prepaid");
 
 	private long id;
 

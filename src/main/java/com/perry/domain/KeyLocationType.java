@@ -1,5 +1,6 @@
 package com.perry.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.perry.exceptions.EnumerationException;
 
 public enum KeyLocationType {
@@ -14,6 +15,7 @@ public enum KeyLocationType {
 		this.value = value;
 	}
 
+	@JsonCreator
 	public static KeyLocationType fromId(long id) {
 		for (KeyLocationType keyLocation : KeyLocationType.values()) {
 			if (keyLocation.getId() == (id)) {

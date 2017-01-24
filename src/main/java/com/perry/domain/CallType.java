@@ -1,5 +1,6 @@
 package com.perry.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.perry.exceptions.EnumerationException;
 
 public enum CallType {
@@ -13,7 +14,7 @@ public enum CallType {
 		this.id = id;
 		this.value = value;
 	}
-
+	@JsonCreator
 	public static CallType fromId(long id) {
 		for (CallType callType : CallType.values()) {
 			if (callType.getId() == id) {
