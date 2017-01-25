@@ -1,5 +1,6 @@
 package com.perry.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.perry.domain.truck.Truck;
 import com.perry.domain.truck.TruckDomainService;
+import com.perry.domain.truck.TruckId;
 
 @RestController
 @RequestMapping("/trucks")
@@ -39,5 +41,14 @@ public class TruckController {
 		List<Truck> truckList = truckDomainService.getAll();
 		return truckList;
 	}
+	
+	@RequestMapping(value = "/ids", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public List<TruckId> getAllTruckIds() {
+		List<TruckId> ids = new ArrayList<>();
+		List<Truck> truckList = truckDomainService.getAll();
+		truckList.stream().forEach(truck -> ids.add(new TruckId(truck.getId(),truck.getIdentifier())));
+		return ids;
+	}
+	
 
 }
