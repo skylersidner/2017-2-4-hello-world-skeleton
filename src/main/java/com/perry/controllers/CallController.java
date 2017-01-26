@@ -35,9 +35,9 @@ public class CallController {
 	private CallDomainService callDomainService;
 
 	@RequestMapping(value = "/{callId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public List<Call> getJobById(@PathVariable Long callId) {
+	public Call getJobById(@PathVariable Long callId) {
 		List<Call> callList = callDomainService.getByIds(Arrays.asList(callId));
-		return callList;
+		return callList.get(0);
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)

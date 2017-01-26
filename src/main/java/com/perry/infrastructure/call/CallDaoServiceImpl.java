@@ -44,13 +44,13 @@ public class CallDaoServiceImpl implements CallDaoService {
 				"            drop_off_location, customer_vehicle_year, customer_vehicle_make, \r\n" + //
 				"            customer_vehicle_model, customer_vehicle_color, customer_vehicle_license_plate_number, \r\n" + //
 				"            customer_phone_number, customer_vehicle_key_location, customer_call_type, \r\n" + //
-				"            customer_payment_information, status, insert_by, update_by, truck_id, \r\n" + //
+				"            customer_payment_information, insert_by, update_by, truck_id, \r\n" + //
 				"            insert_time, update_time)\r\n" + //
 				"    VALUES (:customerFirstName, :customerLastName, :pickUpLocation, \r\n" + //
 				"            :dropOffLocation, :customerVehicleYear, :customerVehicleMake, \r\n" + //
 				"            :customerVehicleModel, :customerVehicleColor, :customerVehicleLiscensePlateNumber, \r\n" + //
 				"            :customerPhoneNumber, :customerVehicleKeyLocation, :customerCallType, \r\n" + //
-				"            :customerPaymentInformation, :status, :insertBy, :updateBy, :truckId, \r\n" + //
+				"            :customerPaymentInformation , :insertBy, :updateBy, :truckId, \r\n" + //
 				"            :insertTime, :updateTime)";
 
 		MapSqlParameterSource params = new MapSqlParameterSource();

@@ -9,6 +9,8 @@ public class Customer {
 
 	private Vehicle vehicle;
 
+	private String priceQuote;
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -39,6 +41,14 @@ public class Customer {
 
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
+	}
+
+	public String getPriceQuote() {
+		return priceQuote;
+	}
+
+	public void setPriceQuote(String priceQuote) {
+		this.priceQuote = priceQuote;
 	}
 
 }
