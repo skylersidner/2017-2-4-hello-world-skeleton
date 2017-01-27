@@ -19,4 +19,6 @@ public interface CallDaoService {
 
 	void unAssignTruck(long callId);
 
+	void delete(long callId);
+
 }

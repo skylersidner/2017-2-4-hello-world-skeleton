@@ -118,4 +118,15 @@ public class CallDaoServiceImpl implements CallDaoService {
 
 	}
 
+	@Override
+	public void delete(long callId) {
+		String sql = "delete from calls where call_id = :callId";
+
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("callId", callId);
+
+		namedParameterJdbcTemplate.update(sql, params);
+		
+	}
+
 }

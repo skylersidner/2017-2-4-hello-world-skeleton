@@ -18,4 +18,6 @@ public interface CallDomainService {
 
 	void unAssignTruck(long callId);
 
+	void delete(long callId);
+
 }

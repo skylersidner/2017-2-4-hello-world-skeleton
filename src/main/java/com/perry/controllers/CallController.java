@@ -46,6 +46,11 @@ public class CallController {
 		return createdCall;
 	}
 
+	@RequestMapping(value = "/delete/{callId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+	public void create(@PathVariable long callId) {
+		callDomainService.delete(callId);
+	}
+
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
 	public List<Call> getAllCalls() {
 		List<Call> callList = callDomainService.getAllCalls();

@@ -51,4 +51,9 @@ public class CallDomainServieImpl implements CallDomainService {
 
 	}
 
+	@Override
+	public void delete(long callId) {
+		callDaoService.delete(callId);
+	}
+
 }
