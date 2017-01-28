@@ -20,4 +20,6 @@ public interface CallDomainService {
 
 	void delete(long callId);
 
+	Call edit(Call call);
+
 }

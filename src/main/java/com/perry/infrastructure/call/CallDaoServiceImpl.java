@@ -22,7 +22,7 @@ public class CallDaoServiceImpl implements CallDaoService {
 
 	@Inject
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-	
+
 	@Inject
 	private TruckDaoService truckDaoService;
 
@@ -126,7 +126,57 @@ public class CallDaoServiceImpl implements CallDaoService {
 		params.addValue("callId", callId);
 
 		namedParameterJdbcTemplate.update(sql, params);
-		
+
+	}
+
+	@Override
+	public Call edit(Call call) {
+		String sql = "UPDATE calls set customer_first_name = :customerFirstName, \r\n" + //
+				"       customer_last_name = :customerLastName, \r\n" + //
+				"       pick_up_location = :pickUpLocation, \r\n" + //
+				"       drop_off_location =:dropOffLocation, \r\n" + //
+				"       customer_vehicle_year=:customerVehicleYear, \r\n" + //
+				"       customer_vehicle_make=:customerVehicleMake, \r\n" + //
+				"       customer_vehicle_model= :customerVehicleModel, \r\n" + //
+				"       customer_vehicle_color=:customerVehicleColor, \r\n" + //
+				"       customer_vehicle_license_plate_number=:customerVehicleLiscensePlateNumber, \r\n" + //
+				"       customer_phone_number=:customerPhoneNumber, \r\n" + //
+				"       customer_vehicle_key_location=:customerVehicleKeyLocation, \r\n" + //
+				"       customer_call_type=:customerCallType, \r\n" + //
+				"       customer_payment_information=:customerPaymentInformation, \r\n" + //
+				"       insert_by=:insertBy, \r\n" + //
+				"       update_by=:updateBy, \r\n" + //
+				"       truck_id=:truckId, \r\n" + //
+				"       insert_time=:insertTime, \r\n" + //
+				"       update_time=:updateTime WHERE call_id = :callId";
+
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("customerFirstName", call.getCustomer().getFirstName());
+		params.addValue("customerLastName", call.getCustomer().getLastName());
+		params.addValue("pickUpLocation", call.getPickUpLocation());
+		params.addValue("dropOffLocation", call.getDropOffLocation());
+		params.addValue("customerVehicleYear", call.getCustomer().getVehicle().getYear());
+		params.addValue("customerVehicleMake", call.getCustomer().getVehicle().getMake());
+		params.addValue("customerVehicleModel", call.getCustomer().getVehicle().getMake());
+		params.addValue("customerVehicleColor", call.getCustomer().getVehicle().getColor());
+		params.addValue("customerVehicleLiscensePlateNumber", call.getCustomer().getVehicle().getLicensePlateNumber());
+		params.addValue("customerPhoneNumber", call.getCustomer().getPhoneNumber());
+		params.addValue("customerVehicleKeyLocation", call.getCustomer().getVehicle().getKeyLocationType().getValue());
+		params.addValue("customerCallType", call.getCallType().getValue());
+		params.addValue("customerPaymentInformation", call.getCustomer().getVehicle().getMake());
+		params.addValue("insertBy", 1);
+		params.addValue("updateBy", 1);
+		params.addValue("truckId", 0);
+		params.addValue("insertTime", Instant.now().getEpochSecond());
+		params.addValue("updateTime", Instant.now().getEpochSecond());
+		params.addValue("callId", call.getId());
+
+		GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+		namedParameterJdbcTemplate.update(sql, params, keyHolder);
+
+		// update call with primary key returned from DB
+		call.setId((Long) keyHolder.getKeys().get("call_id"));
+		return call;
 	}
 
 }

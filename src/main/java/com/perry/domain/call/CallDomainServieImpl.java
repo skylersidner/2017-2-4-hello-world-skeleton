@@ -56,4 +56,10 @@ public class CallDomainServieImpl implements CallDomainService {
 		callDaoService.delete(callId);
 	}
 
+	@Override
+	public Call edit(Call call) {
+		Call updatedCall = callDaoService.edit(call);
+		return updatedCall;
+	}
+
 }

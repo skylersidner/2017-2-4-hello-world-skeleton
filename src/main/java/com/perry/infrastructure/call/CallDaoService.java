@@ -21,4 +21,6 @@ public interface CallDaoService {
 
 	void delete(long callId);
 
+	Call edit(Call call);
+
 }

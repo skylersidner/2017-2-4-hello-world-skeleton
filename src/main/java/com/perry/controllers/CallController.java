@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.perry.domain.CallType;
@@ -43,6 +44,12 @@ public class CallController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
 	public Call create(@RequestBody Call call) {
 		Call createdCall = callDomainService.create(call);
+		return createdCall;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+	public Call edit(@RequestBody Call call) {
+		Call createdCall = callDomainService.edit(call);
 		return createdCall;
 	}
 
