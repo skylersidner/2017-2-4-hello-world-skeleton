@@ -22,4 +22,5 @@ public interface CallDomainService {
 
 	Call edit(Call call);
 
+	Call getTruckActive(long truckId);
 }

@@ -82,4 +82,9 @@ public class CallController {
 		callDomainService.unAssignTruck(callId);
 
 	}
+	
+	@RequestMapping(value = "/activeTruck/{truckId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public Call getTruckActive(@PathVariable long truckId) {
+		return callDomainService.getTruckActive(truckId);
+	}
 }
