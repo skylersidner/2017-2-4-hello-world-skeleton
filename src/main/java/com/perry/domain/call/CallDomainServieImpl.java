@@ -64,7 +64,7 @@ public class CallDomainServieImpl implements CallDomainService {
 	
 	@Override
 	public Call getTruckActive(long truckId) {
-		return null;
+		return callDaoService.getTruckActive(truckId);
 	}
 
 }
