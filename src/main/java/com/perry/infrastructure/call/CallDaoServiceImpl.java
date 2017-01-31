@@ -146,7 +146,6 @@ public class CallDaoServiceImpl implements CallDaoService {
 				"       customer_payment_information=:customerPaymentInformation, \r\n" + //
 				"       insert_by=:insertBy, \r\n" + //
 				"       update_by=:updateBy, \r\n" + //
-				"       truck_id=:truckId, \r\n" + //
 				"       insert_time=:insertTime, \r\n" + //
 				"       update_time=:updateTime WHERE call_id = :callId";
 
@@ -166,7 +165,6 @@ public class CallDaoServiceImpl implements CallDaoService {
 		params.addValue("customerPaymentInformation", call.getCustomer().getVehicle().getMake());
 		params.addValue("insertBy", 1);
 		params.addValue("updateBy", 1);
-		params.addValue("truckId", 0);
 		params.addValue("insertTime", Instant.now().getEpochSecond());
 		params.addValue("updateTime", Instant.now().getEpochSecond());
 		params.addValue("callId", call.getId());
