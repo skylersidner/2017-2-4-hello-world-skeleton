@@ -1,4 +1,4 @@
-package com.perry.config;
+package com.helloWorld.config;
 
 import java.io.IOException;
 import javax.servlet.Filter;

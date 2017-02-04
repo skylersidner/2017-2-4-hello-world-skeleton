@@ -1,4 +1,4 @@
-package com.perry.config;
+package com.helloWorld.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @SpringBootApplication
-@ComponentScan(value = "com.perry")
+@ComponentScan(value = "com.helloWorld")
 public class MainApplication {
 
 
